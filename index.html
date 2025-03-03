@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog with JSONPlaceholder</title>
+   <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JesusPride Blog</h1>
+            <button class="create-btn" id="openCreateModal">Create New Post</button>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="totalPosts">0</div>
+                <div class="stat-label">Total Posts</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalComments">0</div>
+                <div class="stat-label">Total Comments</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalUsers">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search posts...">
+            <button id="searchBtn" class="search-btn">Search</button>
+        </div>
+
+        <div class="analytics-tabs">
+            <div class="tab active" data-tab="all">All Posts</div>
+            <div class="tab" data-tab="popular">Popular</div>
+            <div class="tab" data-tab="trending">Trending</div>
+        </div>
+
+        <div class="loader" id="loader">
+            <div></div>
+        </div>
+
+        <div class="posts-container" id="postsContainer"></div>
+
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <!-- Create/Edit Post Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Create New Post</h2>
+                <span class="close-btn" id="closePostModal">&times;</span>
+            </div>
+            <form id="postForm">
+                <input type="hidden" id="postId">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="body">Content</label>
+                    <textarea id="body" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Read More Modal -->
+    <div class="modal read-more-modal" id="readMoreModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="readMoreTitle"></h2>
+                <span class="close-btn" id="closeReadMoreModal">&times;</span>
+            </div>
+            <div id="readMoreBody" class="read-more-body"></div>
+            <div id="comments" class="comments-section">
+                <h3>Comments</h3>
+                <div id="commentsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/index.js"></script>
+</body>
+</html>
